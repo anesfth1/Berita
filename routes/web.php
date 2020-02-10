@@ -63,3 +63,9 @@ Route::get('penulis', function() {
      echo "<hr>";
     }
 });
+
+Route::resource('siswa','SiswaController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
