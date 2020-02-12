@@ -29,12 +29,17 @@
                         <td> {{ $item->nama}}</td>
                         <td> {{ $item->kelas}}</td>
                         <td>
+                        <form action="{{route('siswa.destroy',$item->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
                         <a class="btn btn-outline-info" href="{{ route('siswa.show', $item->id)}}">Show</a>
                         <a class="btn btn-outline-warning" href="{{ route('siswa.edit', $item->id)}}">Edit</a>
-                        <a class="btn btn-outline-danger" href="{{ route('siswa.destroy', $item->id)}}">Delete</a>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
                         </td>
                         </tr>
                         @endforeach
+                        </form>
                     </tbody>
                 </table>
             </div>

@@ -7,23 +7,28 @@
             <div class="card">
                 <div class="card-header">Ini Halaman Siswa</div>
                 <div class="card-body">
+                <form action=" {{ route('siswa.update',$siswa->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <div class="col-md-2">
-                            <label>Nama</label>
+                            <label for="">Nama</label>
                         </div>
                         <div class="col-md-10">
-                        <input type="text" value="{{$siswa->nama}}" readonly name="nama" class="form-control">
+                        <input type="text" name="nama" value="{{$siswa->nama}}" class="form-control" required>
                         </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-2">
-                            <label>Kelas</label>
+                            <label for="">Kelas</label>
                         </div>
                         <div class="col-md-10">
-                             <input type="text" value="{{$siswa->kelas}}" readonly name="kelas" class="form-control">
+                        <input type="text" name="kelas" value="{{$siswa->kelas}}" class="form-control" required>
                         </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>
                     <button class="btn btn-outline-warning" type="reset">Reset</button>
+                </form>
             </div>
         </div>
     </div>

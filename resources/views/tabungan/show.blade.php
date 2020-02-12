@@ -13,13 +13,19 @@
                             <label>Nama</label>
                         </div>
                         <div class="col-md-10">
-                        <input type="text" value="{{$siswa->nama}}" readonly name="nama" class="form-control">
+                        <input type="text" value="{{$tabungan->nama}}" readonly name="nama" class="form-control">
                         </div>
                         <div class="col-md-2">
                             <label>Kelas</label>
                         </div>
                         <div class="col-md-10">
-                             <input type="text" value="{{$siswa->kelas}}" readonly name="kelas" class="form-control">
+                             <input type="text" value="{{$tabungan->kelas}}" readonly name="kelas" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Tabungan</label>
+                        </div>
+                        <div class="col-md-10">
+                             <input type="text" value="{{$tabungan->jumlah_uang}}" readonly name="jumlah_uang" class="form-control">
                         </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>

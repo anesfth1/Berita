@@ -69,3 +69,4 @@ Route::resource('siswa','SiswaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('tabungan','TabunganController');
