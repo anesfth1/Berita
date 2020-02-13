@@ -9,6 +9,7 @@
                 <div class="card-body">
                     @csrf
                     <div class="form-group">
+                          <form action=" {{ route('siswa.index')}}" method="POST">
                         <div class="col-md-2">
                             <label>Nama</label>
                         </div>
@@ -22,8 +23,8 @@
                              <input type="text" value="{{$siswa->kelas}}" readonly name="kelas" class="form-control">
                         </div>
                     </div>
-                    <button class="btn btn-outline-success" type="submit">Simpan</button>
-                    <button class="btn btn-outline-warning" type="reset">Reset</button>
+                     <a class="btn btn-outline-primary" href="{{ route('siswa.index', $siswa->id)}}">Kembali</a>
+                </form>
             </div>
         </div>
     </div>

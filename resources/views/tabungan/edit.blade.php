@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>
-                    <button class="btn btn-outline-warning" type="reset">Reset</button>
+                    <a class="btn btn-outline-primary" href="{{ route('tabungan.index', $tabungan->id)}}">Kembali</a>
                 </form>
             </div>
         </div>

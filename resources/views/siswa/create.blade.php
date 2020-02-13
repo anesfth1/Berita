@@ -9,18 +9,18 @@
                 <div class="card-body">
                 <form action=" {{ route('siswa.store')}}" method="POST">
                     @csrf
-                    <div class="row">
+                    <div class="form-group">
                         <div class="col-md-2">
                             <label>Nama</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" name="nama" required>
+                            <input type="text" name="nama" class="form-control" required>
                         </div>
                         <div class="col-md-2">
                             <label>Kelas</label>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" name="kelas" required>
+                            <input type="text" name="kelas" class="form-control" required>
                         </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>

@@ -4,20 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Ini Halaman Siswa</div>
 
-                {{-- <div class="card-body">
-                    @if (session('status'))
+            @if (session('message'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('message') }}
                         </div>
                     @endif
 
-                    Silahkan isi dokumentasi!
-                </div> --}}
-                <a href="{{ route('siswa.create')}}" class="btn btn-outline-primary">Tambah Siswa</a>
+            <div class="card">
+                <div class="card-header">Ini Halaman Siswa</div>
+                <a href="{{ route('siswa.create')}}" class="btn btn-primary">Tambah Siswa</a>
                 <table class="table">
+                    @csrf
                     <thead>
                         <th>Nama Siswa</th>
                         <th>Kelas</th>
@@ -42,7 +40,7 @@
                         </form>
                     </tbody>
                 </table>
-            </div>
+            </table>
         </div>
     </div>
 </div>

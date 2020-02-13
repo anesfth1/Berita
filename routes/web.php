@@ -65,8 +65,10 @@ Route::get('penulis', function() {
 });
 
 Route::resource('siswa','SiswaController');
+Route::get('tabungan/report','TabunganController@jumlah_tabungan');
+Route::resource('tabungan','TabunganController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('tabungan','TabunganController');
+

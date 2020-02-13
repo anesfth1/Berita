@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>
-                    <button class="btn btn-outline-warning" type="reset">Reset</button>
+                    <a class="btn btn-outline-primary" href="{{ route('siswa.index', $siswa->id)}}">Kembali</a>
                 </form>
             </div>
         </div>

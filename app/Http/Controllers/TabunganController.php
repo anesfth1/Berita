@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Siswa;
 use App\Tabungan;
 use Illuminate\Http\Request;
+use DB;
 
 class TabunganController extends Controller
 {
@@ -13,6 +14,18 @@ class TabunganController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function jumlah_tabungan()
+    {
+        $tabungan = Tabungan::with('siswa')->select
+        ('siswa_id', \DB::raw ('sum(tabungans.jumlah_uang) as jumlah_uang'))
+        ->groupBy('siswa_id')
+        ->get();
+        // dd($tabungan);
+        return view('tabungan.report', compact('tabungan'));
+    }
+
+
+
     public function index()
     {
       $tabungan = Tabungan::with('siswa')->get();
@@ -42,7 +55,7 @@ class TabunganController extends Controller
         $tabungan->siswa_id = $request->siswa_id;
         $tabungan->jumlah_uang = $request->jumlah_uang;
         $tabungan->save();
-        return redirect()->route('tabungan.index');
+        return redirect()->route('tabungan.index')->with(['message' => 'Data Siswa Berhasil Disimpan!']);
     }
 
     /**
@@ -84,7 +97,7 @@ class TabunganController extends Controller
         $tabungan->siswa_id = $request->siswa_id;
         $tabungan->jumlah_uang = $request->jumlah_uang;
         $tabungan->save();
-        return redirect()->route('tabungan.index');
+        return redirect()->route('tabungan.index')->with(['message' => 'Data Siswa Berhasil Diupdate!']);
     }
 
     /**
@@ -97,6 +110,6 @@ class TabunganController extends Controller
     {
         $tabungan = Tabungan::findOrFail($id);
         $tabungan->delete();
-        return redirect()->route('tabungan.index');
+        return redirect()->route('tabungan.index')->with(['message' => 'Data Siswa Berhasil Dihapus!']);
     }
 }

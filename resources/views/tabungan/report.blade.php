@@ -4,13 +4,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
-                @if (session('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('message') }}
-                        </div>
-                    @endif
-
                 <div class="card-header">
                     Tabungan Siswa
                 </div>
@@ -25,7 +18,6 @@
                                     <th>Nama</th>
                                     <th>Kelas</th>
                                     <th>Jumlah Uang Tabungan</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,17 +28,8 @@
                                     <td>{{$data->siswa->nama}}</td>
                                     <td>{{$data->siswa->kelas}}</td>
                                     <td>{{$data->jumlah_uang}}</td>
-                                    <td>
-                                       <form action="{{route('tabungan.destroy',$data->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a class="btn btn-outline-info" href="{{ route('tabungan.show', $data->id)}}">Show</a>
-                                        <a class="btn btn-outline-warning" href="{{ route('tabungan.edit', $data->id)}}">Edit</a>
-                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
-                                    </td>
                                 </tr>
                                 @endforeach
-                                       </form>
                             </tbody>
                         </table>
                     </div>
