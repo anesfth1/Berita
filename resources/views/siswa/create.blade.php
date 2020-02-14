@@ -22,6 +22,16 @@
                         <div class="col-md-10">
                             <input type="text" name="kelas" class="form-control" required>
                         </div>
+                        <div class="col-md-2">
+                            <label>Hobi</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select class="form-control pilih-hobi" multiple name="hobi_id[]">
+                                 @foreach ($hobi as $item)
+                            <option value="{{ $item->id}}">{{$item->hobi}}</option>
+                                 @endforeach
+                            </select>
+                        </div>
                     </div>
                     <button class="btn btn-outline-success" type="submit">Simpan</button>
                     <button class="btn btn-outline-warning" type="reset">Reset</button>
@@ -31,3 +41,11 @@
     </div>
 </div>
 @endsection
+@push('script')
+<script type="text/javascript">
+ $(document).ready(function(){
+     $('.pilih-hobi').select2();
+ });
+
+</script>
+@endpush
